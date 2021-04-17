@@ -35,7 +35,20 @@ async function name($) {
     }
 }
 
+async function output($,userName) {
+    try {
+        function consoleFunction(userName) {
+            let views=document.querySelector('div[id="averagedailyviews"]').innerText.trim();
+            let output=`${userName} channel's daily average views are ${views}`;
+            return output;
+        }
+        return $.evaluate(consoleFunction,userName);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 module.exports = {
-    data,name
+    data,name,output
 }
 
