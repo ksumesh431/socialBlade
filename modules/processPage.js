@@ -22,7 +22,20 @@ async function data($) {
     }
 }
 
-module.exports={
-    data
+async function name($) {
+    try {
+        function consoleFunction() {
+            let name=document.querySelector("#YouTubeUserTopInfoBlockTop > div:nth-child(1) > h1").innerText.trim();
+            return name
+        }
+        return $.evaluate(consoleFunction);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = {
+    data,name
 }
 
