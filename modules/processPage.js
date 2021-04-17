@@ -21,11 +21,10 @@ async function data($) {
         console.log(err);
     }
 }
-
 async function name($) {
     try {
         function consoleFunction() {
-            let name=document.querySelector("#YouTubeUserTopInfoBlockTop > div:nth-child(1) > h1").innerText.trim();
+            let name = document.querySelector("#YouTubeUserTopInfoBlockTop > div:nth-child(1) > h1").innerText.trim();
             return name
         }
         return $.evaluate(consoleFunction);
@@ -34,21 +33,20 @@ async function name($) {
         console.log(err);
     }
 }
-
-async function output($,userName) {
+async function output($, userName) {
     try {
         function consoleFunction(userName) {
-            let views=document.querySelector('div[id="averagedailyviews"]').innerText.trim();
-            let output=`${userName} channel's daily average views are ${views}`;
+            let views = document.querySelector('div[id="averagedailyviews"]').innerText.trim();
+            let output = `${userName} channel's daily average views are ${views}`;
             return output;
         }
-        return $.evaluate(consoleFunction,userName);
+        return $.evaluate(consoleFunction, userName);
     } catch (err) {
         console.log(err);
     }
 }
 
 module.exports = {
-    data,name,output
+    data, name, output
 }
 

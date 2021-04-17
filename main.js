@@ -1,6 +1,6 @@
-const { data,name,output } = require("./modules/processPage");
+const { data, name, output } = require("./modules/processPage");
 const { processData } = require("./modules/processData")
-const { puppeteer,path } = require("./includes/includes")
+const { puppeteer, path } = require("./includes/includes")
 
 let $;
 let input = process.argv[2];
@@ -20,12 +20,12 @@ let input = process.argv[2];
         await $.keyboard.press('Enter');
         await $.keyboard.press('Enter');
         await $.waitForSelector('div[id="YouTubeUserTopHeader"]')
-        
+
         let resultArr = await data($);
-        let userName=await name($);
-        let folderPath=path.join(__dirname,userName);
-        processData(resultArr,userName,folderPath);
-        let consoleOutput=await output($,userName);
+        let userName = await name($);
+        let folderPath = path.join(__dirname, userName);
+        processData(resultArr, userName, folderPath);
+        let consoleOutput = await output($, userName);
         await browser.close();
         console.log(consoleOutput);
 
